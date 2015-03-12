@@ -54,3 +54,15 @@ describe('kraken.getTradesHistory', function () {
         });
     });
 });
+
+
+describe('kraken.getLedgerHistory', function () {
+    it('should return an array of historic ledger entries', function (done) {
+        krakenclient.getLedgerHistory(function (err, data) {
+            if (err) return done(err);
+            log('data: ' + util.inspect(data, null, 5));
+            data.should.be.instanceOf(Array);
+            done();
+        });
+    });
+});

@@ -47,12 +47,30 @@ KrakenClient.prototype.getTradesHistory = function(callback) {
     this.krakenapi.api('TradesHistory', null, function (err, result) {
         if (err) return callback(err);
         result = result.result.trades;
-        trades = [];
+        var trades = [];
         _.mapObject(result, function(val, key) {
             val.tradeid = key;
           trades.push(val);
         });
         return callback(null, trades);
+    });
+};
+
+
+KrakenClient.prototype.getLedgerHistory = function(callback) {
+    var credentialsError = this._checkCredentials();
+    if (credentialsError) {
+        return callback(credentialsError);
+    }
+    this.krakenapi.api('Ledgers', null, function (err, result) {
+        if (err) return callback(err);
+        result = result.result.ledger;
+        var ledgerEntries = [];
+        _.mapObject(result, function(val, key) {
+            val.ledgerid = key;
+            ledgerEntries.push(val);
+        });
+        return callback(null, ledgerEntries);
     });
 };
 
