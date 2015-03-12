@@ -1,0 +1,35 @@
+{
+  "name": "kraken-exchange-client",
+  "version": "0.0.1",
+  "description": "A client library to query the kraken api from node applications.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "DEBUG= ./node_modules/.bin/mocha -t 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coyno/kraken-client-node.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "kraken",
+    "api"
+  ],
+  "author": "Coyno (dev@coyno.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coyno/kraken-client-node/issues"
+  },
+  "homepage": "https://github.com/coyno/kraken-client-node",
+  "devDependencies": {
+    "debug": "^2.1.2",
+    "mocha": "^2.2.1",
+    "should": "^5.1.0"
+  },
+  "dependencies": {
+    "kraken-api": "git://github.com/coyno/npm-kraken-api#5959c9b3f0f53faabdd1bf05b6ceb193559932d2"
+  }
+}
