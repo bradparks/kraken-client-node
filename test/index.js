@@ -4,7 +4,7 @@
 
 
 'use strict';
-var log = require('debug')('chain:test'),
+var log = require('debug')('kraken-client:test'),
     util = require('util');
 require('should');
 
