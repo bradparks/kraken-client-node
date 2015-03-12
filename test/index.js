@@ -44,9 +44,9 @@ describe('kraken.getBalance', function () {
 });
 
 
-describe('kraken.getTrades', function () {
-    it('should return users balance', function (done) {
-        krakenclient.getTrades(function (err, data) {
+describe('kraken.getTradesHistory', function () {
+    it('should return an array of historic trades', function (done) {
+        krakenclient.getTradesHistory(function (err, data) {
             if (err) return done(err);
             log('data: ' + util.inspect(data, null, 5));
             data.should.be.instanceOf(Array);

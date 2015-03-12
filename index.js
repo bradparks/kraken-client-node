@@ -39,7 +39,7 @@ KrakenClient.prototype.getBalance = function(currency, callback) {
     });
 };
 
-KrakenClient.prototype.getTrades = function(callback) {
+KrakenClient.prototype.getTradesHistory = function(callback) {
     var credentialsError = this._checkCredentials();
     if (credentialsError) {
         return callback(credentialsError);
