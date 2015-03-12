@@ -1,5 +1,5 @@
 var KrakenAPI = require('kraken-api');
-
+var _ = require('underscore');
 
 function KrakenClient(key, secret) {
     if (!(this instanceof KrakenClient)) {
@@ -38,5 +38,23 @@ KrakenClient.prototype.getBalance = function(currency, callback) {
         return callback(null, 0);
     });
 };
+
+KrakenClient.prototype.getTrades = function(callback) {
+    var credentialsError = this._checkCredentials();
+    if (credentialsError) {
+        return callback(credentialsError);
+    }
+    this.krakenapi.api('TradesHistory', null, function (err, result) {
+        if (err) return callback(err);
+        result = result.result.trades;
+        trades = [];
+        _.mapObject(result, function(val, key) {
+            val.tradeid = key;
+          trades.push(val);
+        });
+        return callback(null, trades);
+    });
+};
+
 
 module.exports = KrakenClient;

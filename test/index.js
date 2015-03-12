@@ -25,7 +25,7 @@ describe('kraken.getTime', function () {
 });
 
 
-//This part requires user auth.
+//These tests requires user auth! We check whether they have been set before we do any tests.
 
 if (!process.env.KRAKEN_API_KEY) throw new Error('You must specify a KRAKEN_API_KEY environment variable to run tests');
 if (!process.env.KRAKEN_API_SECRET) throw new Error('You must specify a KRAKEN_API_SECRET environment variable to run tests');
@@ -38,6 +38,18 @@ describe('kraken.getBalance', function () {
             if (err) return done(err);
             log('data: ' + util.inspect(data, null, 5));
             data.should.be.instanceOf(Number);
+            done();
+        });
+    });
+});
+
+
+describe('kraken.getTrades', function () {
+    it('should return users balance', function (done) {
+        krakenclient.getTrades(function (err, data) {
+            if (err) return done(err);
+            log('data: ' + util.inspect(data, null, 5));
+            data.should.be.instanceOf(Array);
             done();
         });
     });

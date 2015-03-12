@@ -30,6 +30,7 @@
     "should": "^5.1.0"
   },
   "dependencies": {
-    "kraken-api": "git://github.com/coyno/npm-kraken-api#5959c9b3f0f53faabdd1bf05b6ceb193559932d2"
+    "kraken-api": "git://github.com/coyno/npm-kraken-api#5959c9b3f0f53faabdd1bf05b6ceb193559932d2",
+    "underscore": "^1.8.2"
   }
 }
